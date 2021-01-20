@@ -32,12 +32,24 @@ def split_pairs(a):
     return b
 
 
+def beginning_zeros(number: str) -> int:
+    b = 0
+    while number[0] == '0':
+        b += 1
+        if len(number)>1:
+            number = number[1:]
+        else:
+            return b
+    return b
+
+
 if __name__ == '__main__':
     print("Example:")
     print(backward_string('val'))
     print(list(replace_first([1, 2, 3, 4])))
     print(max_digit(0))
     print(list(split_pairs('abcd')))
+    print(beginning_zeros('100'))
 
     assert backward_string('val') == 'lav'
     assert backward_string('') == ''
