@@ -16,9 +16,20 @@ def replace_first(items: list) -> Iterable:
         items.append(items.pop(0))
     return items
 
+
 def max_digit(number: int) -> int:
-    x = int(max(list(str(number))))
+    x = int(max((str(number))))
     return x
+
+
+def split_pairs(a):
+    if len(a) % 2 == 1:
+        a += '_'
+    b = []
+    while a:
+        b.append(a[0:2])
+        a = a[2:]
+    return b
 
 
 if __name__ == '__main__':
@@ -26,6 +37,7 @@ if __name__ == '__main__':
     print(backward_string('val'))
     print(list(replace_first([1, 2, 3, 4])))
     print(max_digit(0))
+    print(list(split_pairs('abcd')))
 
     assert backward_string('val') == 'lav'
     assert backward_string('') == ''
