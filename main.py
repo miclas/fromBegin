@@ -16,12 +16,16 @@ def replace_first(items: list) -> Iterable:
         items.append(items.pop(0))
     return items
 
+def max_digit(number: int) -> int:
+    x = int(max(list(str(number))))
+    return x
+
 
 if __name__ == '__main__':
     print("Example:")
     print(backward_string('val'))
     print(list(replace_first([1, 2, 3, 4])))
-
+    print(max_digit(0))
 
     assert backward_string('val') == 'lav'
     assert backward_string('') == ''
