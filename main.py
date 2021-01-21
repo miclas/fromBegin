@@ -43,6 +43,17 @@ def beginning_zeros(number: str) -> int:
     return b
 
 
+def nearest_value(values: set, one: int) -> int:
+    a = []
+    b = list(values)
+    for x in b:
+        a.append(abs(x-one))
+    index = a.index(min(a))
+    del a[index]
+    index2 = a.index(min(a)) + 1
+    return min([b[index], b[index2]])
+
+
 if __name__ == '__main__':
     print("Example:")
     print(backward_string('val'))
@@ -50,6 +61,7 @@ if __name__ == '__main__':
     print(max_digit(0))
     print(list(split_pairs('abcd')))
     print(beginning_zeros('100'))
+    print(nearest_value({4, 7, 10, 11, 12, 17}, 9))
 
     assert backward_string('val') == 'lav'
     assert backward_string('') == ''
