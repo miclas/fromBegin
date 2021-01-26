@@ -60,6 +60,15 @@ def between_markers(text: str, begin: str, end: str) -> str:
     return text[index1:index2]
 
 
+def correct_sentence(text: str) -> str:
+    a = len(text) - 1
+    text = list(text)
+    text[0] = text[0].upper()
+    if text[a] != '.':
+        text.append('.')
+    return ''.join(text)
+
+
 if __name__ == '__main__':
     print("Example:")
     print(backward_string('val'))
@@ -69,6 +78,7 @@ if __name__ == '__main__':
     print(beginning_zeros('100'))
     print(nearest_value({4, 7, 10, 11, 12, 17}, 9))
     print(between_markers('What is >apple<', '>', '<'))
+    print(correct_sentence("greetings, friends"))
 
     assert backward_string('val') == 'lav'
     assert backward_string('') == ''
