@@ -69,6 +69,18 @@ def correct_sentence(text: str) -> str:
     return ''.join(text)
 
 
+def sum_numbers(text: str) -> int:
+    x = text.split()
+    suma = 0
+    for n in x:
+        try:
+            a = int(n)
+            suma += a
+        except:
+            continue
+    return suma
+
+
 if __name__ == '__main__':
     print("Example:")
     print(backward_string('val'))
@@ -79,6 +91,7 @@ if __name__ == '__main__':
     print(nearest_value({4, 7, 10, 11, 12, 17}, 9))
     print(between_markers('What is >apple<', '>', '<'))
     print(correct_sentence("greetings, friends"))
+    print(sum_numbers('hi 2 1st'))
 
     assert backward_string('val') == 'lav'
     assert backward_string('') == ''
