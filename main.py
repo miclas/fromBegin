@@ -54,6 +54,12 @@ def nearest_value(values: set, one: int) -> int:
     return min([b[index], b[index2]])
 
 
+def between_markers(text: str, begin: str, end: str) -> str:
+    index1 = text.index(begin) + 1
+    index2 = text.index(end)
+    return text[index1:index2]
+
+
 if __name__ == '__main__':
     print("Example:")
     print(backward_string('val'))
@@ -62,6 +68,7 @@ if __name__ == '__main__':
     print(list(split_pairs('abcd')))
     print(beginning_zeros('100'))
     print(nearest_value({4, 7, 10, 11, 12, 17}, 9))
+    print(between_markers('What is >apple<', '>', '<'))
 
     assert backward_string('val') == 'lav'
     assert backward_string('') == ''
