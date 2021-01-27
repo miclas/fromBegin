@@ -21,7 +21,12 @@ def threeWords(words: str) -> bool:
     return False
 
 
+def first_word(text: str) -> str:
+    return text.replace('.', ' ').replace(',',' ').split()[0]
+
+
 if __name__ == '__main__':
     print('Example:')
     print(checkio([0, 1, 2, 3, 4, 5]))
     print(threeWords("Hello World hello"))
+    print(first_word("... and so on ..."))
