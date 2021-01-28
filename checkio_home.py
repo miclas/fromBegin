@@ -40,6 +40,14 @@ def days_diff(a, b):
     return abs(date2-date1).days
 
 
+def count_digits(text: str) -> int:
+    suma = 0
+    for x in text:
+        if x.isdigit():
+            suma += 1
+    return suma
+
+
 if __name__ == '__main__':
     print('Example:')
     print(checkio([0, 1, 2, 3, 4, 5]))
@@ -47,4 +55,7 @@ if __name__ == '__main__':
     print(first_word("... and so on ..."))
     print(left_join(("left", "right", "left", "stop")))
     print(days_diff((1982, 4, 19), (1982, 4, 22)))
+    print(count_digits('This picture is an oil on canvas '
+                       'painting by Danish artist Anna '
+                       'Petersen between 1845 and 1910 year'))
 
