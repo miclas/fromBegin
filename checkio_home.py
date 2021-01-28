@@ -1,3 +1,6 @@
+from datetime import date
+
+
 def checkio(array: list) -> int:
     sum = 0
     if not array:
@@ -29,9 +32,19 @@ def first_word(text: str) -> str:
     return text.replace('.', ' ').replace(',',' ').split()[0]
 
 
+def days_diff(a, b):
+    x, y, z = a
+    q, w, e = b
+    date1 = date(x, y, z)
+    date2 = date(q, w, e)
+    return abs(date2-date1).days
+
+
 if __name__ == '__main__':
     print('Example:')
     print(checkio([0, 1, 2, 3, 4, 5]))
     print(threeWords("Hello World hello"))
     print(first_word("... and so on ..."))
     print(left_join(("left", "right", "left", "stop")))
+    print(days_diff((1982, 4, 19), (1982, 4, 22)))
+
