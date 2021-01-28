@@ -48,6 +48,26 @@ def count_digits(text: str) -> int:
     return suma
 
 
+def backward_string_by_word(text: str) -> str:
+    a = list(text)
+    if not text:
+        return ''
+    res = []
+    while a:
+        if a[0] == ' ':
+            res.append(a.pop(0))
+        elif ' ' in a:
+            c = a[:a.index(' ')]
+            c.reverse()
+            res.append(''.join(c))
+            a = a[a.index(' '):]
+        else:
+            a.reverse()
+            res.append(''.join(a))
+            a = False
+    return ''.join(res)
+
+
 if __name__ == '__main__':
     print('Example:')
     print(checkio([0, 1, 2, 3, 4, 5]))
@@ -58,4 +78,5 @@ if __name__ == '__main__':
     print(count_digits('This picture is an oil on canvas '
                        'painting by Danish artist Anna '
                        'Petersen between 1845 and 1910 year'))
+    print(backward_string_by_word('hallo    co'))
 
