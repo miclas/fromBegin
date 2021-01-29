@@ -68,6 +68,21 @@ def backward_string_by_word(text: str) -> str:
     return ''.join(res)
 
 
+def bigger_price(limit: int, data: list) -> list:
+    b = []
+    res = []
+    a = 0
+    for x in data:
+        b.append(x['price'])
+    while a < limit:
+        g = max(b)
+        index = b.index(g)
+        b[index] = 0
+        res.append(data[index])
+        a += 1
+    return res
+
+
 if __name__ == '__main__':
     print('Example:')
     print(checkio([0, 1, 2, 3, 4, 5]))
@@ -79,4 +94,10 @@ if __name__ == '__main__':
                        'painting by Danish artist Anna '
                        'Petersen between 1845 and 1910 year'))
     print(backward_string_by_word('hallo    co'))
+    print(bigger_price(2, [
+                        {"name": "bread", "price": 100},
+                        {"name": "wine", "price": 138},
+                        {"name": "meat", "price": 15},
+                        {"name": "water", "price": 1}
+                        ]))
 
