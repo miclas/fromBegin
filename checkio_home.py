@@ -83,6 +83,25 @@ def bigger_price(limit: int, data: list) -> list:
     return res
 
 
+def between_markers(text: str, begin: str, end: str) -> str:
+    if begin in text:
+        b = text.index(begin) + len(begin)
+        if end in text:
+            e = text.index(end)
+            if b > e:
+                return ''
+            return text[b:e]
+        else:
+            return text[b:]
+
+    else:
+        if end not in text:
+            return text
+        else:
+            e = text.index(end)
+            return text[:e]
+
+
 if __name__ == '__main__':
     print('Example:')
     print(checkio([0, 1, 2, 3, 4, 5]))
@@ -100,4 +119,6 @@ if __name__ == '__main__':
                         {"name": "meat", "price": 15},
                         {"name": "water", "price": 1}
                         ]))
+    print(between_markers("<head><title>My new site</title></head>",
+                          "<title>", "</title>"))
 
