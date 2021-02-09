@@ -102,6 +102,14 @@ def between_markers(text: str, begin: str, end: str) -> str:
             return text[:e]
 
 
+def onlyMulti(data: list) -> list:
+    res = []
+    for x in data:
+        if data.count(x) > 1:
+            res.append(x)
+    return res
+
+
 if __name__ == '__main__':
     print('Example:')
     print(checkio([0, 1, 2, 3, 4, 5]))
@@ -121,4 +129,4 @@ if __name__ == '__main__':
                         ]))
     print(between_markers("<head><title>My new site</title></head>",
                           "<title>", "</title>"))
-
+    print(onlyMulti([1, 4, 7, 2, 3, 7, 1, 3]))
