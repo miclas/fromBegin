@@ -110,6 +110,18 @@ def onlyMulti(data: list) -> list:
     return res
 
 
+def popular_words(text: str, words: list) -> dict:
+    lower = text.lower()
+    splited = lower.split()
+    a = {}
+    for x in words:
+        a[x] = 0
+        for z in splited:
+            if x == z:
+                a[x] += 1
+    return a
+
+
 if __name__ == '__main__':
     print('Example:')
     print(checkio([0, 1, 2, 3, 4, 5]))
@@ -130,3 +142,9 @@ if __name__ == '__main__':
     print(between_markers("<head><title>My new site</title></head>",
                           "<title>", "</title>"))
     print(onlyMulti([1, 4, 7, 2, 3, 7, 1, 3]))
+    print(popular_words('''
+                        When I was One
+                        I had just begun
+                        When I was Two
+                        I was nearly new
+                        ''', ['i', 'was', 'three', 'near']))
