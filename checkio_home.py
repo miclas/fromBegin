@@ -122,6 +122,19 @@ def popular_words(text: str, words: list) -> dict:
     return a
 
 
+def second_index(text: str, symbol: str) -> [int, None]:
+    try:
+        first = text.index(symbol)
+        text = text[:first] + text[first+1:]
+    except:
+        return None
+    try:
+        index = text.index(symbol) + 1
+        return index
+    except:
+        return None
+
+
 if __name__ == '__main__':
     print('Example:')
     print(checkio([0, 1, 2, 3, 4, 5]))
@@ -148,3 +161,4 @@ if __name__ == '__main__':
                         When I was Two
                         I was nearly new
                         ''', ['i', 'was', 'three', 'near']))
+    print(second_index("sims", "s"))
