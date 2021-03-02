@@ -1,4 +1,5 @@
 from datetime import date
+from collections import Counter
 
 
 def checkio(array: list) -> int:
@@ -122,6 +123,11 @@ def popular_words(text: str, words: list) -> dict:
     return a
 
 
+def frequency_sort(items):
+    result = [item for x, c in Counter(items).most_common() for item in [x] * c]
+    return result
+
+
 def second_index(text: str, symbol: str) -> [int, None]:
     try:
         first = text.index(symbol)
@@ -162,3 +168,4 @@ if __name__ == '__main__':
                         I was nearly new
                         ''', ['i', 'was', 'three', 'near']))
     print(second_index("sims", "s"))
+    print(frequency_sort([4, 6, 2, 2, 6, 4, 4, 4]))
