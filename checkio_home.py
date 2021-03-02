@@ -141,6 +141,16 @@ def second_index(text: str, symbol: str) -> [int, None]:
         return None
 
 
+def safe_pawns(pawns: set) -> int:
+    count = 0
+    for x in pawns:
+        left_guard = chr(ord(x[0]) + 1) + str(int(x[1])-1)
+        right_guard = chr(ord(x[0]) - 1) + str(int(x[1])-1)
+        if left_guard in pawns or right_guard in pawns:
+            count += 1
+    return count
+
+
 if __name__ == '__main__':
     print('Example:')
     print(checkio([0, 1, 2, 3, 4, 5]))
@@ -169,3 +179,4 @@ if __name__ == '__main__':
                         ''', ['i', 'was', 'three', 'near']))
     print(second_index("sims", "s"))
     print(frequency_sort([4, 6, 2, 2, 6, 4, 4, 4]))
+    print(safe_pawns({"b4", "c4", "d4", "e4", "f4", "g4", "e5"}))
