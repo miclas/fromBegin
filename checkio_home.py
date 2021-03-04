@@ -151,6 +151,16 @@ def safe_pawns(pawns: set) -> int:
     return count
 
 
+def sun_angle(time):
+    print(time)
+    if int(time[:2]) >= 6 and int(time[:2]) < 18 or (int(time[:2]) == 18 and int(time[3:]) == 0):
+        angle = ((int(time[:2]) - 6) * 60 + int(time[3:])) * 180 / 720
+    else:
+        return "I don't see the sun!"
+    print(angle)
+    return round(angle, 2)
+
+
 if __name__ == '__main__':
     print('Example:')
     print(checkio([0, 1, 2, 3, 4, 5]))
@@ -180,3 +190,4 @@ if __name__ == '__main__':
     print(second_index("sims", "s"))
     print(frequency_sort([4, 6, 2, 2, 6, 4, 4, 4]))
     print(safe_pawns({"b4", "c4", "d4", "e4", "f4", "g4", "e5"}))
+    print(sun_angle("07:00"))
