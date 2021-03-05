@@ -1,5 +1,6 @@
 from datetime import date
 from collections import Counter
+from typing import List, Any
 
 
 def checkio(array: list) -> int:
@@ -173,6 +174,19 @@ def split_list(items: list) -> list:
     return answer
 
 
+def all_the_same(elements: List[Any]) -> bool:
+    try:
+        x = elements.pop(0)
+    except:
+        return True
+    while elements:
+        if x == elements[0]:
+            x = elements.pop(0)
+        else:
+            return False
+    return True
+
+
 if __name__ == '__main__':
     print('Example:')
     print(checkio([0, 1, 2, 3, 4, 5]))
@@ -204,3 +218,4 @@ if __name__ == '__main__':
     print(safe_pawns({"b4", "c4", "d4", "e4", "f4", "g4", "e5"}))
     print(sun_angle("07:00"))
     print(split_list([1, 2, 3, 4, 5, 6]))
+    print(all_the_same([1, 1, 1]))
