@@ -1,6 +1,7 @@
-from datetime import date
+import datetime
 from collections import Counter
 from typing import List, Any
+import time
 
 
 def checkio(array: list) -> int:
@@ -187,6 +188,25 @@ def all_the_same(elements: List[Any]) -> bool:
     return True
 
 
+def date_time(time: str) -> str:
+    day = int(time[:2])
+    month = int(time[3:5])
+    year = int(time[6:10])
+    hour = str(int(time[11:13]))
+    min = str(int(time[14:16]))
+    x = datetime.datetime(year, month, day)
+    y = x.strftime("%B")
+    write_hour = 'hours'
+    if hour == '1':
+        write_hour = 'hour'
+    write_min = 'minutes'
+    if min == '1':
+        write_min = 'minute'
+    print(str(day), y, str(year), 'year', hour, write_hour, min, write_min, 'dass')
+    result = str(day), y, str(year), 'year', hour, write_hour, min, write_min
+    return ' '.join(result)
+
+
 if __name__ == '__main__':
     print('Example:')
     print(checkio([0, 1, 2, 3, 4, 5]))
@@ -219,3 +239,4 @@ if __name__ == '__main__':
     print(sun_angle("07:00"))
     print(split_list([1, 2, 3, 4, 5, 6]))
     print(all_the_same([1, 1, 1]))
+    print(date_time('01.01.2000 00:00'))
