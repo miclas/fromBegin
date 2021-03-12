@@ -1,7 +1,21 @@
 import datetime
 from collections import Counter
 from typing import List, Any
-import time
+
+
+MORSE = {'.-':    'a', '-...':  'b', '-.-.':  'c',
+         '-..':   'd', '.':     'e', '..-.':  'f',
+         '--.':   'g', '....':  'h', '..':    'i',
+         '.---':  'j', '-.-':   'k', '.-..':  'l',
+         '--':    'm', '-.':    'n', '---':   'o',
+         '.--.':  'p', '--.-':  'q', '.-.':   'r',
+         '...':   's', '-':     't', '..-':   'u',
+         '...-':  'v', '.--':   'w', '-..-':  'x',
+         '-.--':  'y', '--..':  'z', '-----': '0',
+         '.----': '1', '..---': '2', '...--': '3',
+         '....-': '4', '.....': '5', '-....': '6',
+         '--...': '7', '---..': '8', '----.': '9'
+         }
 
 
 def checkio(array: list) -> int:
@@ -207,6 +221,19 @@ def date_time(time: str) -> str:
     return ' '.join(result)
 
 
+def morse_decoder(code):
+    splited = code.split(' ')
+    result = []
+    for sign in splited:
+        if sign:
+            result.append(MORSE[sign])
+        else:
+            result.append(' ')
+    result[0] = result[0].upper()
+    joined = ''.join(result).replace('  ', ' ')
+    return joined
+
+
 if __name__ == '__main__':
     print('Example:')
     print(checkio([0, 1, 2, 3, 4, 5]))
@@ -240,3 +267,4 @@ if __name__ == '__main__':
     print(split_list([1, 2, 3, 4, 5, 6]))
     print(all_the_same([1, 1, 1]))
     print(date_time('01.01.2000 00:00'))
+    print(morse_decoder('... --- ...'))
