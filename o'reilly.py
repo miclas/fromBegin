@@ -1,10 +1,10 @@
 from datetime import datetime
-from typing import List
+from typing import List, Iterable
 
 
 def replace_last(line: list) -> list:
     if line:
-        line.insert(0,line.pop(-1))
+        line.insert(0, line.pop(-1))
     return line
 
 
@@ -32,13 +32,21 @@ def sum_light(els: List[datetime]) -> int:
     return result
 
 
+def remove_all_after(items: list, border: int) -> Iterable:
+    if border in items:
+        cut =  items.index(border) + 1
+        return items[:cut]
+    return items
+
+
 if __name__ == '__main__':
     print(replace_last([2, 3, 4, 1]))
     print(index_power([1, 2, 3, 4], 2))
     print(is_majority([True, True, False, True, False]))
     print(sum_light([
-        datetime(2015, 1, 12, 10, 0 , 0),
-        datetime(2015, 1, 12, 10, 10 , 10),
-        datetime(2015, 1, 12, 11, 0 , 0),
-        datetime(2015, 1, 12, 11, 10 , 10),
+        datetime(2015, 1, 12, 10, 0, 0),
+        datetime(2015, 1, 12, 10, 10, 10),
+        datetime(2015, 1, 12, 11, 0, 0),
+        datetime(2015, 1, 12, 11, 10, 10),
     ]))
+    print(list(remove_all_after([1, 2, 3, 4, 5], 3)))
