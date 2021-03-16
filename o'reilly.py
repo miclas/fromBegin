@@ -54,6 +54,16 @@ def sum_light2(els: List[datetime], start_watching: Optional[datetime] = None) -
     return result
 
 
+def median(data: List[int]) -> [int, float]:
+    data.sort()
+    if len(data) % 2 == 0:
+        y = int(len(data) / 2)
+        return (data[y-1] + data[y]) / 2
+    else:
+        y = int((len(data) + 1) / 2)
+        return data[y-1]
+
+
 if __name__ == '__main__':
     print(replace_last([2, 3, 4, 1]))
     print(index_power([1, 2, 3, 4], 2))
@@ -71,3 +81,4 @@ if __name__ == '__main__':
                        datetime(2015, 1, 12, 11, 0, 0),
                        datetime(2015, 1, 12, 11, 10, 10),
                      ], datetime(2015, 1, 12, 11, 0, 0)))
+    print(median([1, 300, 2, 200, 1]))
