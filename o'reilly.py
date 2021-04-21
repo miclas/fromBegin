@@ -64,6 +64,10 @@ def median(data: List[int]) -> [int, float]:
         return data[y-1]
 
 
+def frequency_sorting(numbers):
+    return sorted(sorted(numbers), key=numbers.count, reverse=True)
+
+
 if __name__ == '__main__':
     print(replace_last([2, 3, 4, 1]))
     print(index_power([1, 2, 3, 4], 2))
@@ -82,3 +86,4 @@ if __name__ == '__main__':
                        datetime(2015, 1, 12, 11, 10, 10),
                      ], datetime(2015, 1, 12, 11, 0, 0)))
     print(median([1, 300, 2, 200, 1]))
+    print(frequency_sorting([99, 99, 55, 55, 21, 21, 10, 10]))
