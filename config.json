@@ -1,0 +1,6 @@
+{
+    "URLS": {
+        "ENVIRONMENT": "https://raw.githubusercontent.com/miclas/fromBegin/master/dataset/"
+    },
+    "DATAPATH": "dataset"
+}
