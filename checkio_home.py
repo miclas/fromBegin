@@ -22,7 +22,7 @@ def checkio(array: list) -> int:
     sum = 0
     if not array:
         return 0
-    for i,x in enumerate(array, 0):
+    for i, x in enumerate(array, 0):
         if i % 2 == 0:
             sum += x
     return sum * array[-1]
@@ -46,14 +46,14 @@ def left_join(phrases: tuple) -> str:
 
 
 def first_word(text: str) -> str:
-    return text.replace('.', ' ').replace(',',' ').split()[0]
+    return text.replace('.', ' ').replace(',', ' ').split()[0]
 
 
 def days_diff(a, b):
     x, y, z = a
     q, w, e = b
-    date1 = date(x, y, z)
-    date2 = date(q, w, e)
+    date1 = datetime.date(x, y, z)
+    date2 = datetime.date(q, w, e)
     return abs(date2-date1).days
 
 
