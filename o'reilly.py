@@ -34,7 +34,7 @@ def sum_light(els: List[datetime]) -> int:
 
 def remove_all_after(items: list, border: int) -> Iterable:
     if border in items:
-        cut =  items.index(border) + 1
+        cut = items.index(border) + 1
         return items[:cut]
     return items
 
@@ -86,4 +86,4 @@ if __name__ == '__main__':
                        datetime(2015, 1, 12, 11, 10, 10),
                      ], datetime(2015, 1, 12, 11, 0, 0)))
     print(median([1, 300, 2, 200, 1]))
-    print(frequency_sorting([99, 99, 55, 55, 21, 21, 10, 10]))
+    print(frequency_sorting([99, 99, 55, 55, 21, 21, 10, 10, 55]))
