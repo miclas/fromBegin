@@ -1,3 +1,4 @@
+import unicodedata
 
 
 def sort_abs(values):
@@ -14,6 +15,12 @@ def sort_abs(values):
     return result
 
 
+def rmAccent(in_string):
+    return ''.join(c for c in unicodedata.normalize('NFD', in_string)
+                   if unicodedata.category(c) != 'Mn')
+
+
 if __name__ == '__main__':
     print("Example:")
     print(sort_abs([-20, -5, 10, 15]))
+    print(rmAccent("àèìǹòùẁỳÀÈÌǸÒÙẀỲ"))
