@@ -20,7 +20,19 @@ def rmAccent(in_string):
                    if unicodedata.category(c) != 'Mn')
 
 
+def goes_after(word, first, second) -> bool:
+    if first == second or word is False or first not in word or second not in word:
+        return False
+    first = word.index(first)
+    second = word.index(second)
+    if (first + 1) == second:
+        return True
+    else:
+        return False
+
+
 if __name__ == '__main__':
     print("Example:")
     print(sort_abs([-20, -5, 10, 15]))
     print(rmAccent("àèìǹòùẁỳÀÈÌǸÒÙẀỲ"))
+    print(goes_after("world", "w", "o"))
