@@ -55,6 +55,24 @@ def find_in(text, word):
     return False
 
 
+def time_converter(time):
+    x=time.split(':')
+    x[0]=int(x[0])
+    if x[0] > 12:
+        x[0]=str(x[0]-12)
+        y = ':'.join(x) + ' p.m.'
+    elif x[0] == 12:
+        x[0]=str(x[0])
+        y = ':'.join(x) + ' p.m.'
+    elif x[0] == 0:
+        x[0]='12'
+        y = y = ':'.join(x) + ' a.m.'
+    else:
+        x[0]=str(x[0])
+        y = ':'.join(x) + ' a.m.'
+    return y
+
+
 if __name__ == '__main__':
     print("Example:")
     print(sort_abs([-20, -5, 10, 15]))
@@ -68,3 +86,4 @@ if __name__ == '__main__':
                     The Jabberwock, with eyes of flame,
                     Came whiffling through the tulgey wood,
                     And burbled as it came!""", "noir"))
+    print(time_converter('23:15'))
