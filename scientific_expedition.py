@@ -1,4 +1,5 @@
 import unicodedata
+from typing import Tuple
 
 
 def sort_abs(values):
@@ -55,6 +56,17 @@ def find_in(text, word):
     return False
 
 
+def sum_by_types(items: list) -> Tuple[str, int]:
+    znak = ''
+    liczba = 0
+    for tmp in items:
+        try:
+            znak += tmp
+        except:
+            liczba += tmp
+    return znak, liczba
+
+
 def time_converter(time):
     x=time.split(':')
     x[0]=int(x[0])
@@ -87,3 +99,4 @@ if __name__ == '__main__':
                     Came whiffling through the tulgey wood,
                     And burbled as it came!""", "noir"))
     print(time_converter('23:15'))
+    print(sum_by_types(["size", 12, "in", 45, 0]))
