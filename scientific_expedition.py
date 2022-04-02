@@ -85,6 +85,24 @@ def time_converter(time):
     return y
 
 
+def translate(text: str) -> str:
+    Vowels_letters = "aeiouy"
+    splited = text.split(' ')
+    result=[]
+    for val in splited:
+        x=0
+        tmp = list(val)
+        test = True
+        while x<=len(tmp)-1:
+            if tmp[x] in Vowels_letters:
+                del tmp[x+1:x+3]
+            else:
+                del tmp[x+1]
+            x += 1
+        result.append(''.join(tmp))
+    return ' '.join(result)
+
+
 if __name__ == '__main__':
     print("Example:")
     print(sort_abs([-20, -5, 10, 15]))
@@ -100,3 +118,4 @@ if __name__ == '__main__':
                     And burbled as it came!""", "noir"))
     print(time_converter('23:15'))
     print(sum_by_types(["size", 12, "in", 45, 0]))
+    print(translate("hoooowe yyyooouuu duoooiiine"))
