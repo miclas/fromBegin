@@ -103,6 +103,18 @@ def translate(text: str) -> str:
     return ' '.join(result)
 
 
+def common_words(line1, line2):
+    splited = line1.split(',')
+    splited2 = line2.split(',')
+    result = []
+    for v in splited:
+        for x in splited2:
+            if v == x:
+                result.append(v)
+        result.sort()
+    return ','.join(result)
+
+
 if __name__ == '__main__':
     print("Example:")
     print(sort_abs([-20, -5, 10, 15]))
@@ -119,3 +131,4 @@ if __name__ == '__main__':
     print(time_converter('23:15'))
     print(sum_by_types(["size", 12, "in", 45, 0]))
     print(translate("hoooowe yyyooouuu duoooiiine"))
+    print(common_words('one,two,three', 'four,five,one,two,six,three'))
